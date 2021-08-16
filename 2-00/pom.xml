@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>design-example</artifactId>
+        <groupId>org.cxy</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>2-00</artifactId>
+
+
+    <description>
+        抽象工厂模式:  和工厂方法的区别在于，抽象工厂模式  是创建其他工厂的模式，常见的场景就是一些需要兼容的地方：
+            1.不同操作系统的‘回车换行’ 不同，Unix是 \n ,windows是 \n\r , macOs是回车
+
+            2.IDEA中同样的操作：”在文件系统中打开文件“， macOs 称为 ”Reveal in Finder“ ,windows 中称"Open in explorer"
+
+        场景：切换redis服务使用方式从 现在的单机到 集群，两套集群方案需要兼容使用
+
+    </description>
+
+
+
+
+    <dependencies>
+        <!-- LOGGING begin -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+
+</project>
