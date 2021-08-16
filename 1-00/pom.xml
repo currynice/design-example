@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>design-example</artifactId>
+        <groupId>org.cxy</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>1-00</artifactId>
+
+    <description>
+
+        创建型—— 工厂方法模式
+
+        业务逻辑：
+            用户使用积分兑换奖励，分为：
+                优惠卷，实物商品，爱奇艺兑换卡
+
+            三个接口的下游各异：
+              1. 返回类型不同： 对象类型 , 布尔, 空类型
+              2. 入参不同：发放优惠卷需要防重（uuid），实物商品需要提供收货信息，兑换卡需要 卡ID
+              3. 未来可能需要支持更多的兑换
+
+
+
+        要素：定义一个创建对象的接口，子类决定实例化哪一个工厂类，工厂模式使得创建过程延迟到子类中
+
+
+
+    </description>
+
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+    </dependencies>
+
+
+
+</project>
