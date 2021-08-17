@@ -24,10 +24,10 @@ public class MyProxy {
     public static <T> T getProxy(Class<T> interfaceClass, ICacheAdapter cacheAdapter) throws Exception {
         InvocationHandler handler = new MyInvocationHandler(cacheAdapter);
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        Class<?>[] classes = interfaceClass.getInterfaces();
+//        Class<?>[] classes = interfaceClass();
 
         // 类加载器 , proxyClass 的实现接口（这里是 interface org.cxy.demo.CacheService ） , InvocationHandler
-        Object proxy = Proxy.newProxyInstance(classLoader, new Class[]{classes[0]}, handler);
+        Object proxy = Proxy.newProxyInstance(classLoader, new Class[]{interfaceClass}, handler);
         return (T)proxy;
     }
 }
