@@ -1,19 +1,17 @@
 package org.cxy.demo.service.engine;
 
 
-import org.itstack.demo.design.domain.service.logic.LogicFilter;
-import org.itstack.demo.design.domain.service.logic.impl.UserAgeFilter;
-import org.itstack.demo.design.domain.service.logic.impl.UserGenderFilter;
-
+import org.cxy.demo.service.logic.LogicFilter;
+import org.cxy.demo.service.logic.impl.UserAgeFilter;
+import org.cxy.demo.service.logic.impl.UserGenderFilter;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 微信公众号：bugstack虫洞栈 | 专注原创技术专题案例
- * 论坛：http://bugstack.cn
- * Create by 小傅哥 on @2020
+ * 引擎配置 ，决策服务节点的数据源 ,继承即可使用此数据源
  */
 public class EngineConfig {
+
 
     static Map<String, LogicFilter> logicFilterMap;
 
@@ -27,8 +25,9 @@ public class EngineConfig {
         return logicFilterMap;
     }
 
-    public void setLogicFilterMap(Map<String, LogicFilter> logicFilterMap) {
-        this.logicFilterMap = logicFilterMap;
+    public void setLogicFilterMap(Map<String, LogicFilter> logicFilterMap_) {
+
+        logicFilterMap = logicFilterMap_;
     }
 
 }

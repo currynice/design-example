@@ -1,10 +1,10 @@
 package org.cxy.demo.service.engine.impl;
 
-import org.itstack.demo.design.domain.model.aggregates.TreeRich;
-import org.itstack.demo.design.domain.model.vo.EngineResult;
-import org.itstack.demo.design.domain.model.vo.TreeNode;
-import org.itstack.demo.design.domain.service.engine.EngineBase;
 
+import org.cxy.demo.model.aggregates.TreeRich;
+import org.cxy.demo.model.vo.EngineResult;
+import org.cxy.demo.model.vo.TreeNode;
+import org.cxy.demo.service.engine.EngineBase;
 import java.util.Map;
 
 public class TreeEngineHandle extends EngineBase {

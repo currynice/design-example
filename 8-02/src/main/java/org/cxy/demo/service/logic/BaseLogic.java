@@ -9,6 +9,7 @@ import java.util.Map;
  */
 public abstract class BaseLogic implements LogicFilter {
 
+
     @Override
     public Long filter(String matterValue, List<TreeNodeLink> treeNodeLinkList) {
         for (TreeNodeLink nodeLine : treeNodeLinkList) {
@@ -19,21 +20,31 @@ public abstract class BaseLogic implements LogicFilter {
         return 0L;
     }
 
+    //todo 提供决策值
     @Override
     public abstract String matterValue(Long treeId, String userId, Map<String, String> decisionMatter);
 
+
+    /**
+     * 逻辑决策
+     * @param matterValue  待对比项
+     * @param nodeLink     决策树
+     * @return
+     */
     private boolean decisionLogic(String matterValue, TreeNodeLink nodeLink) {
         switch (nodeLink.getRuleLimitType()) {
-            case 1:
+            case EQUALS:
                 return matterValue.equals(nodeLink.getRuleLimitValue());
-            case 2:
+            case GT:
                 return Double.parseDouble(matterValue) > Double.parseDouble(nodeLink.getRuleLimitValue());
-            case 3:
+            case LT:
                 return Double.parseDouble(matterValue) < Double.parseDouble(nodeLink.getRuleLimitValue());
-            case 4:
+            case EGT:
                 return Double.parseDouble(matterValue) >= Double.parseDouble(nodeLink.getRuleLimitValue());
-            case 5:
+            case ELZ:
                 return Double.parseDouble(matterValue) <= Double.parseDouble(nodeLink.getRuleLimitValue());
+//            case ENUM:
+//                 return false;  //todo
             default:
                 return false;
         }

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 定义决策 Filter
+ * 定义营销决策的 Filter，每一个 具备逻辑决策的节点都要实现
  */
 public interface LogicFilter {
 
@@ -15,7 +15,7 @@ public interface LogicFilter {
      * 逻辑决策器
      *
      * @param matterValue          决策值
-     * @param treeNodeLineInfoList 决策节点
+     * @param treeNodeLineInfoList 所有决策节点
      * @return 下一个节点Id
      */
     Long filter(String matterValue, List<TreeNodeLink> treeNodeLineInfoList);

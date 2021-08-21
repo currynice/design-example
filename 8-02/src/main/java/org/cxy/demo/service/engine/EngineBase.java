@@ -1,35 +1,53 @@
 package org.cxy.demo.service.engine;
 
 
-import org.itstack.demo.design.domain.model.aggregates.TreeRich;
-import org.itstack.demo.design.domain.model.vo.EngineResult;
-import org.itstack.demo.design.domain.model.vo.TreeNode;
-import org.itstack.demo.design.domain.model.vo.TreeRoot;
-import org.itstack.demo.design.domain.service.logic.LogicFilter;
+
+import org.cxy.demo.model.aggregates.TreeRich;
+import org.cxy.demo.model.vo.EngineResult;
+import org.cxy.demo.model.vo.TreeNode;
+import org.cxy.demo.model.vo.TreeRoot;
+import org.cxy.demo.service.logic.LogicFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Map;
 
-/**
- * 微信公众号：bugstack虫洞栈 | 专注原创技术专题案例
- * 论坛：http://bugstack.cn
- * Create by 小傅哥 on @2020
- */
+
 public abstract class EngineBase extends EngineConfig implements IEngine {
 
     private Logger logger = LoggerFactory.getLogger(EngineBase.class);
 
+
+    /**
+     * 执行流程供外部实现
+     * @param treeId
+     * @param userId
+     * @param treeRich
+     * @param decisionMatter
+     * @return
+     */
     @Override
     public abstract EngineResult process(Long treeId, String userId, TreeRich treeRich, Map<String, String> decisionMatter);
 
+
+    /**
+     * 在 决策树中 找到结果节点
+     * @param treeRich
+     * @param treeId
+     * @param userId
+     * @param decisionMatter
+     * @return
+     */
     protected TreeNode engineDecisionMaker(TreeRich treeRich, Long treeId, String userId, Map<String, String> decisionMatter) {
         TreeRoot treeRoot = treeRich.getTreeRoot();
+
+        // 编号对应关系
         Map<Long, TreeNode> treeNodeMap = treeRich.getTreeNodeMap();
-        // 规则树根ID
+
+
+        // 根节点ID
         Long rootNodeId = treeRoot.getTreeRootNodeId();
         TreeNode treeNodeInfo = treeNodeMap.get(rootNodeId);
-        //节点类型[NodeType]；1子叶、2果实
+        //节点类型[NodeType]；1子叶、2结果
         while (treeNodeInfo.getNodeType().equals(1)) {
             String ruleKey = treeNodeInfo.getRuleKey();
             LogicFilter logicFilter = logicFilterMap.get(ruleKey);
