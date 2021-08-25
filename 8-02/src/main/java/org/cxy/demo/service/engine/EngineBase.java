@@ -18,7 +18,7 @@ public abstract class EngineBase extends EngineConfig implements IEngine {
 
 
     /**
-     * 执行流程供外部实现
+     * 执行流程供子类实现
      * @param treeId
      * @param userId
      * @param treeRich
@@ -30,8 +30,8 @@ public abstract class EngineBase extends EngineConfig implements IEngine {
 
 
     /**
-     * 在 决策树中 找到结果节点
-     * @param treeRich
+     * 决策流程: 在 决策树中 找到结果节点 todo
+     * @param treeRich   决策树
      * @param treeId
      * @param userId
      * @param decisionMatter

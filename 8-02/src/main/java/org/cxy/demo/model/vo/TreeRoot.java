@@ -32,4 +32,13 @@ public class TreeRoot {
     public void setTreeName(String treeName) {
         this.treeName = treeName;
     }
+
+    @Override
+    public String toString() {
+        return "根节点{" +
+                "treeId=" + treeId +
+                ", treeRootNodeId=" + treeRootNodeId +
+                ", treeName='" + treeName + '\'' +
+                '}';
+    }
 }
