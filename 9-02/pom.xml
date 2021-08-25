@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>design-example</artifactId>
+        <groupId>org.cxy</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>9-02</artifactId>
+
+    <description>
+        演示通过'装饰器'的方式，丰富 SsoInterceptor 的逻辑：基本鉴权后的额外逻辑
+
+        装饰器较继承更加灵活， 主要解决 直接继承时子类膨胀的问题
+
+        1.抽象构件（Component）-定义抽象接口
+        2.具体构件（ConcreteComponent）- 实现抽象接口，可以有多个
+        3.装饰（Decorator）-抽象类，继承接口中的方法，力求一致性
+        3.具体装饰角色（ConcreteDecorator）-拓展装饰，实现逻辑
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.cxy</groupId>
+            <artifactId>9-00</artifactId>
+            <version>${version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+    </dependencies>
+
+</project>

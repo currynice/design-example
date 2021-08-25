@@ -30,6 +30,9 @@
         <module>7-02</module>
         <module>8-01</module>
         <module>8-02</module>
+        <module>9-00</module>
+        <module>9-01</module>
+        <module>9-02</module>
     </modules>
 
     <properties>
