@@ -33,6 +33,9 @@
         <module>9-00</module>
         <module>9-01</module>
         <module>9-02</module>
+        <module>10-00</module>
+        <module>10-01</module>
+        <module>10-02</module>
     </modules>
 
     <properties>
