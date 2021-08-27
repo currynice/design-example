@@ -36,6 +36,8 @@
         <module>10-00</module>
         <module>10-01</module>
         <module>10-02</module>
+        <module>11-00</module>
+        <module>11-01</module>
     </modules>
 
     <properties>
